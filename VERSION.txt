@@ -1,4 +1,7 @@
-2.1.2
+2.1.3
 Build 2026-09-11
 Features: reliable offline core cache, replaceable exercise images, in-app update prompt
-Fix: exercise-images.json is network-first so image changes are picked up without a new app build
+Fixes:
+- exercise-images.json is network-first so image changes are picked up
+- update check runs immediately on app start and every 15 minutes
+- new service workers wait for user confirmation so the update banner can appear
