@@ -1,0 +1,36 @@
+{
+  "id": "./",
+  "name": "יומן אימונים A/B",
+  "short_name": "יומן אימונים",
+  "description": "יומן אימונים אישי לתיעוד משקלים, חזרות, RIR, וריאציות תרגילים והתקדמות.",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "background_color": "#f4f6f8",
+  "theme_color": "#111827",
+  "categories": [
+    "fitness",
+    "health",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
