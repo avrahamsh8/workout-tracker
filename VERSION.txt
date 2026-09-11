@@ -1,4 +1,4 @@
-2.1.1
+2.1.2
 Build 2026-09-11
 Features: reliable offline core cache, replaceable exercise images, in-app update prompt
-Fix: bootstrap new service worker so custom images become active
+Fix: exercise-images.json is network-first so image changes are picked up without a new app build
