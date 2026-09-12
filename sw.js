@@ -1,11 +1,11 @@
-const CACHE="workout-pwa-v2.1.3";
+const CACHE="workout-pwa-v2.1.4";
 const CORE=["./","./index.html","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-192.svg","./icons/icon-512.svg","./pwa-enhancements.js"];
 self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)));});
 self.addEventListener("activate",event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
 self.addEventListener("message",event=>{if(event.data?.type==="SKIP_WAITING")self.skipWaiting();});
 
 function enhanceHtml(text){
- text=text.replaceAll("2.0.1","2.1.3").replaceAll("2.1.0","2.1.3").replaceAll("2.1.1","2.1.3").replaceAll("2.1.2","2.1.3").replace("Build 2026-09-11","Build 2026-09-11 · custom images + update manager");
+ text=text.replaceAll("2.0.1","2.1.4").replaceAll("2.1.0","2.1.4").replaceAll("2.1.1","2.1.4").replaceAll("2.1.2","2.1.4").replaceAll("2.1.3","2.1.4").replace("Build 2026-09-11","Build 2026-09-12 · local device date + custom images + update manager");
  const old='const img=document.getElementById("helpImage");img.src=INLINE_EXERCISE_IMAGES[info.img]||("./exercise_images/"+info.img);img.alt="איור התחלה וסיום עבור "+info.title;';
  const replacement='const img=document.getElementById("helpImage");const fallbackImg=INLINE_EXERCISE_IMAGES[info.img]||("./exercise_images/"+info.img);window.loadExerciseImage?window.loadExerciseImage(img,ex.infoId,info,fallbackImg):img.src=fallbackImg;img.alt="איור התחלה וסיום עבור "+info.title;';
  text=text.replace(old,replacement);
