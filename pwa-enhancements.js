@@ -15,6 +15,22 @@
    img.src=custom;
  };
 
+ // Keep new/unsaved workouts on the phone's current local date, even offline.
+ // Existing saved sessions opened for editing keep their original date.
+ try{
+   const now=new Date();
+   const localToday=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);
+   const editingSavedSession=typeof db!=='undefined'&&typeof draft!=='undefined'&&draft&&Array.isArray(db.sessions)&&db.sessions.some(s=>s.id===draft.id);
+   if(typeof draft!=='undefined'&&draft&&!editingSavedSession&&draft.date!==localToday){
+     draft.date=localToday;
+     const dateInput=document.getElementById('date');
+     if(dateInput)dateInput.value=localToday;
+     if(typeof KEY!=='undefined')localStorage.setItem(KEY+'_draft',JSON.stringify(draft));
+     if(typeof renderExercises==='function')renderExercises();
+     if(typeof updateSummary==='function')updateSummary();
+   }
+ }catch{}
+
  function showUpdate(reg){
    if(document.getElementById('pwaUpdateBanner'))return;
    const bar=document.createElement('div');
