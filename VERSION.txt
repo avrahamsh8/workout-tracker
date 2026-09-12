@@ -1,7 +1,9 @@
-2.1.3
-Build 2026-09-11
+2.1.4
+Build 2026-09-12
 Features: reliable offline core cache, replaceable exercise images, in-app update prompt
 Fixes:
 - exercise-images.json is network-first so image changes are picked up
 - update check runs immediately on app start and every 15 minutes
 - new service workers wait for user confirmation so the update banner can appear
+- new/unsaved workouts automatically use the phone's current local date on app open, even offline
+- existing saved workouts opened for editing keep their original date
